@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Post;
-use App\Http\Requests\PostRequest;
+use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,26 +21,16 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('post.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
      * @return Response
      */
-    public function store(PostRequest $request)
+    public function store(CommentRequest $request, $postId)
     {
         $user = \Auth::user();
         $input = $request->all();
-        $user->posts()->create($input);
+        $user->comments()->create($input);
         return redirect()->back();
     }
 
@@ -52,9 +42,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
-        $comments = $post->comments()->get();
-        return view('post.show', ['post' => $post, 'comments' => $comments]);
+        //
     }
 
     /**
@@ -75,7 +63,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(CommentRequest $request, $id)
     {
         //
     }

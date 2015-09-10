@@ -8,6 +8,11 @@ class Comment extends Model
 {
     protected $table = 'comments';
 
+    protected $fillable = [
+        'content',
+        'post_id',
+    ];
+
     public function post()
     {
         return $this->belongsTo('App\Models\Post');
@@ -15,6 +20,6 @@ class Comment extends Model
 
     public function user()
     {
-        retutn $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 }
