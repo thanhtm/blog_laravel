@@ -10,4 +10,8 @@ return [
     'home_description' => 'This is home page',
     'help_description' => 'This is help page',
     'about_description' => 'This is about page',
+    'log_out' => 'Log out',
+    'register' => 'Register',
+    'registration' => 'Registration',
+    'app_name' => 'Mini Blog',
 ];
