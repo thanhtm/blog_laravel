@@ -9,4 +9,7 @@
         'new_feed' => 'New Feed',
         'author' => 'Author',
         'created_at' => 'Created At',
+        'new_comment' => 'New Comment',
+        'comment' => 'Comment',
+        'all_comment' => 'All Comment'
     ];
