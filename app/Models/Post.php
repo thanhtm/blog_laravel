@@ -8,13 +8,18 @@ class Post extends Model
 {
     protected $table = 'posts';
 
+    protected $fillable = [
+        'title',
+        'content'
+    ];
+
     public function comments()
     {
-        return $this->hasMany('Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\Models\User');
     }
 }
