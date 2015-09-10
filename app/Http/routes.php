@@ -31,3 +31,7 @@ Route::get('/about', 'StaticPageController@about');
 // User routes...
 
 Route::resource('/user', 'UserController', ['except' => ['edit', 'update']]);
+
+// Post routes...
+
+Route::resource('/post', 'PostController');
