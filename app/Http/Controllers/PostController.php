@@ -53,8 +53,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        $comments = $post->comments()->get();
-        return view('post.show', ['post' => $post, 'comments' => $comments]);
+        $post->load('comments');
+        return view('post.show', ['post' => $post]);
     }
 
     /**
