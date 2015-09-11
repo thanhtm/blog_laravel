@@ -8,12 +8,14 @@
     </div>
     <div class="col-md-8">
       <h3>{{ trans('post.new_feed') }}</h3><hr>
-      @foreach ($posts as $post)
-        <div class="panel panel-info">
-          <div class="panel-heading"><strong>{{ $post->title }}</strong></div>
-          <div class="panel-body"><em>{{ $post->content }}</em></div>
-        </div>
-      @endforeach
+      @if($user->posts()->count())
+        @foreach ($user->posts as $post)
+          <div class="panel panel-info">
+            <div class="panel-heading"><strong>{{ $post->title }}</strong></div>
+            <div class="panel-body"><em>{{ $post->content }}</em></div>
+          </div>
+        @endforeach
+      @endif
     </div>
   </div>
 @endsection

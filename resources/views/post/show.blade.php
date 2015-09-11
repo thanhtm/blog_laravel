@@ -7,12 +7,14 @@
   <h4>{{ trans('post.content') }} :</h4>
   <p>{{ $post->content }}</p><hr>
   <h4>{{ trans('post.all_comment') }}</h4>
-  @foreach ($comments as $comment)
-    <div>
-      <strong>{{ $comment->user->name }}</strong>:
-      <em>{{ $comment->content }}</em>
-    </div>
-  @endforeach
+  @if($post->comments()->count())
+    @foreach ($post->comments as $comment)
+      <div>
+        <strong>{{ $comment->user->name }}</strong> :
+        <em>{{ $comment->content }}</em>
+      </div>
+    @endforeach
+  @endif
   <h4>{{ trans('post.new_comment') }}</h4>
   <form method="POST" action="{{ route('post.comments.store',['postId' => $post->id]) }}">
     {!! csrf_field() !!}
