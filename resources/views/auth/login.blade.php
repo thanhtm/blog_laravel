@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-left">
       <h2 class="text-center">{{ trans('staticpage.log_in') }}</h2>
-      @include('layout.flash')
+      @include('layout.error')
       <form method="POST" action="/auth/login">
         {!! csrf_field() !!}
         <div>

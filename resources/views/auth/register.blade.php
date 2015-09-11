@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-left">
       <h3 class="text-center">{{ trans('staticpage.registration') }}</h3>
-      @include('layout.flash')
+      @include('layout.error')
       <form method="POST" action="/auth/register">
         {!! csrf_field() !!}
         <div>

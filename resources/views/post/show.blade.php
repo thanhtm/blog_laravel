@@ -2,6 +2,18 @@
 
 @section('content')
   <h3>{{ $post->title }}</h3>
+  @can('update-post', $post)
+    <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-primary">{{ trans('action.edit') }}</a>
+  @endcan
+  @can('delete-post', $post)
+    <form action="{{ route('post.destroy', ['id' =>$post->id]) }}" method="post">
+      {!! csrf_field() !!}
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger" onclick="return confirm('{{ trans('action.confirm') }}');">
+        {{ trans('action.delete') }}
+      </button>
+    </form>
+  @endcan
   <em>{{ trans('post.author') }} : {{ $post->user->name }}</em><br>
   <em>{{ trans('post.created_at') }} : {{ $post->created_at }}</em>
   <h4>{{ trans('post.content') }} :</h4>
@@ -12,6 +24,9 @@
       <div>
         <strong>{{ $comment->user->name }}</strong> :
         <em>{{ $comment->content }}</em>
+        @can('delete-comment', $comment)
+          <a href="#" class="pull-right">{{ trans('action.delete') }}</a><br>
+        @endcan
       </div>
     @endforeach
   @endif

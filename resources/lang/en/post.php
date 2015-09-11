@@ -5,11 +5,12 @@
         'title' => 'Title',
         'content' => 'Content',
         'show_post' => 'Show Post',
-        'recent_post' => 'Recent 20 Post',
+        'recent_post' => 'Recent Post',
         'new_feed' => 'New Feed',
         'author' => 'Author',
         'created_at' => 'Created At',
         'new_comment' => 'New Comment',
         'comment' => 'Comment',
-        'all_comment' => 'All Comment'
+        'all_comment' => 'All Comment',
+        'edit_post' => 'Edit Post',
     ];
